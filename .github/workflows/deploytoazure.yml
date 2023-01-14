@@ -25,10 +25,11 @@ jobs:
       with:
         dotnet-version: 7.0.x
       
-    - name: Build
-      run: 
-        cd '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapplication'
-        ls
+    - name: change dir
+      run: cd '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapplication'
+    
+    - name: ls dir
+      run: ls
     
     - name: Publish
       run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapplication'
